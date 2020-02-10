@@ -1,0 +1,25 @@
+// LoggerImpl.cpp - Реализация
+#include "loggerimpl.h"
+#include <QFile> // Подключаем класс QFile
+#include <QTextStream> // Подключаем класс QTextStream
+#include <fstream>
+
+
+void ST_LoggerImpl::console_log(const std::string & str )
+{
+  std::cout << "Single-threaded console logger" << std::endl;
+  std::cout << str << std::endl;
+}
+
+void ST_LoggerImpl::file_log(const std::string & file, const std::string & str )
+{
+  std::cout << "Single-threaded file logger" << std::endl;
+
+  std::ofstream out(file, std::ios::app);
+  if (out.is_open())
+  {
+      out << str << std::endl;
+  }
+  out.close();
+}
+

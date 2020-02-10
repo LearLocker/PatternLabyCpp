@@ -1,0 +1,37 @@
+#ifndef COOLER_H
+#define COOLER_H
+#include <iostream>
+
+class Cooler
+{
+public:
+    Cooler(int _id){ setId(_id);_CurrentState = false;}
+
+    bool GetCurrentState(){
+        return _CurrentState;
+    }
+
+    void setId(int id){ this->id = id; }
+
+    int getId(){ return id;}
+
+    void TurnOn(){
+        _CurrentState = true;
+    }
+    
+    void TurnOff(){
+        _CurrentState = false;
+    }
+
+    void setMessage(std::string msg){
+        message = msg;
+    }
+
+
+private:
+    bool _CurrentState;
+    int id;
+    std::string message;
+};
+
+#endif // COOLER_H
